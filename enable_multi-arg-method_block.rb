@@ -1,5 +1,6 @@
 # If you want to call a function that takes two arguments as a block to a yielder,
 # there's no way in ruby you can do that
+# [1,2].map(&:to_s)
 #
 # Something like the code below fails
 # [1, 2, 3, 4].map(&:(*2))
@@ -22,6 +23,12 @@ end
 puts :+.(2).call(1)
 
 puts [1, 2, 3, 4].map(&:*.(2))
+
+def mul2(a)
+  a * 2
+end
+
+puts [1, 2, 3, 4].map(&method(:mul2))
 
 def mul(a, b)
   a * b
